@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Info Pembayaran</title>
+  <style>
+    body { 
+      font-family: sans-serif; 
+      text-align: center; 
+      padding: 20px; 
+      background-color: #f4f4f9; 
+    }
+    .card { 
+      background: white; 
+      padding: 20px; 
+      border-radius: 8px; 
+      max-width: 320px; 
+      margin: auto; 
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+    }
+    h2 { 
+      color: #333; 
+      margin-bottom: 20px; 
+    }
+    .account-box { 
+      margin-bottom: 20px; 
+      padding: 15px; 
+      border: 1px solid #ddd; 
+      border-radius: 6px; 
+      background-color: #fafafa; 
+    }
+    .bank-name { 
+      font-weight: bold; 
+      font-size: 16px; 
+      margin: 0 0 5px 0; 
+      color: #444; 
+    }
+    .owner { 
+      color: #666; 
+      margin-bottom: 10px; 
+      font-size: 14px; 
+    }
+    .acc-number { 
+      font-size: 18px; 
+      margin: 0 0 10px 0; 
+      color: #222; 
+      font-family: monospace; 
+    }
+    .copy-btn { 
+      background: #007bff; 
+      color: white; 
+      border: none; 
+      padding: 8px 12px; 
+      border-radius: 4px; 
+      cursor: pointer; 
+      font-size: 14px; 
+      width: 100%; 
+    }
+    .copy-btn:hover { 
+      background: #0056b3; 
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h2>Informasi Rekening</h2>
+
+    <!-- Rekening 1 -->
+    <div class="account-box">
+      <!-- Edit Nama Bank di sini -->
+      <p class="bank-name">MANDIRI</p>
+      <!-- Edit Nama Pemilik Rekening 1 di sini -->
+      <div class="owner">a.n. SAHALA MANAURI SIMATUPANG</div> 
+      <!-- Edit Nomor Rekening 1 di sini -->
+      <p class="acc-number" id="rek1">1070006739868</p> 
+      <button class="copy-btn" onclick="copyToClipboard('rek1')">
+        📋 Copy Nomor Rekening
+      </button>
+    </div>
+
+    <!-- Rekening 2 -->
+    <div class="account-box">
+      <!-- Edit Nama Bank di sini -->
+      <p class="bank-name">MANDIRI</p>
+      <!-- Edit Nama Pemilik Rekening 2 di sini -->
+      <div class="owner">a.n. YOLANDA FRANSISCA SIMAMORA</div> 
+      <!-- Edit Nomor Rekening 2 di sini -->
+      <p class="acc-number" id="rek2">1180014951106</p> 
+      <button class="copy-btn" onclick="copyToClipboard('rek2')">
+        📋 Copy Nomor Rekening
+      </button>
+    </div>
+  </div>
+
+  <script>
+    function copyToClipboard(elementId) {
+      // Mengambil teks dari elemen berdasarkan ID
+      var textToCopy = document.getElementById(elementId).innerText;
+      
+      // Menggunakan API Clipboard bawaan browser untuk menyalin
+      navigator.clipboard.writeText(textToCopy).then(function() {
+        alert("Nomor rekening berhasil disalin: " + textToCopy);
+      }).catch(function(err) {
+        alert("Gagal menyalin teks.");
+      });
+    }
+  </script>
+
+</body>
+</html>
